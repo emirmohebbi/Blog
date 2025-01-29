@@ -1,11 +1,13 @@
+import App from "./App.jsx";
+
 import { createRoot } from "react-dom/client";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-
-import App from "./App.jsx";
-import "./styles/index.css";
-import "./styles/fonts.css";
 import { ThemeProvider } from "@mui/material";
+
 import theme from "./mui/theme";
+import "./styles/fonts.css";
+import "./styles/index.css";
+
 const client = new ApolloClient({
   uri: import.meta.env.VITE_APP_GRAPHCMS_URI,
   cache: new InMemoryCache(),
