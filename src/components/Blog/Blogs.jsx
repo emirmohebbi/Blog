@@ -11,7 +11,6 @@ function Blogs() {
   if (loading) return <h4>Loading ...</h4>;
 
   if (errors) return <h4>Error ...</h4>;
-  console.log(data);
   return (
     <Grid container spacing={2}>
       {data.posts.map(post=>(
