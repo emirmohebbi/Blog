@@ -3,6 +3,7 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_AUTHORS_INFO } from "../../graphql/queries";
 import { Grid, Avatar, Typography, Divider } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function Authors() {
   const { loading, data, errors } = useQuery(GET_AUTHORS_INFO);
@@ -12,7 +13,6 @@ function Authors() {
   if (errors) return <h3>Error ...</h3>;
 
   const { authors } = data;
-  console.log(authors);
   return (
     <Grid
       container
@@ -21,8 +21,8 @@ function Authors() {
       {authors.map((author, index) => (
         <React.Fragment key={author.id}>
           <Grid item xs={12} padding={2}>
-            <a
-              href={`/authors/${author.slug}`}
+            <Link
+              to={`/authors/${author.slug}`}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -33,7 +33,7 @@ function Authors() {
               <Typography component="p" variant="p" color="text.secondary">
                 {author.name}
               </Typography>
-            </a>
+            </Link>
           </Grid>
           {index !== authors.length - 1 && (
             <Grid item xs={12}>
